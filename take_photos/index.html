@@ -7,14 +7,44 @@
 	<title>take photo</title>
 </head>
 <body>
-	<button type="button" id"btnDisplay">Display</button>
-	<button type="button" id"btnDownload">Download</button>
+	<button type="button" id="btnDisplay">Display</button>
+	<button type="button" id="btnDownload">Download</button>
 	
-	<canvas id="myCanvas" width="400" height="400" style="border: 2px solid #000; float: left;"></canvas>
+	<br/>
+	<hr/>
+	
+	<canvas id="myCanvas" width="400" height="250" style="border: 2px solid #000; float: left;"></canvas>
 	<img src="" id="imgConverted" style="float: left; border: 2px solid #00f; margin-left:10px"/>
 	
 	<script>
-	
+		const btnDisplay = document.querySelector("#btnDisplay")
+		const btnDownload = document.querySelector("#btnDownload")
+		const imgConverted = document.querySelector("#imgConverted")
+		const myCanvas = document.querySelector("#myCanvas")
+		const ctx = myCanvas.getContext("2d")
+
+		ctx.font = "50px Roboto"
+		ctx.fillStyle = "#FA8072"
+		ctx.fillRect(200, 150, 150, 75)
+		
+		btnDisplay.addEventListener("click", function() {
+			const dataURI = myCanvas.toDataURL()
+			imgConverted.src = dataURI
+			console.log(dataURI)
+		})
+		
+		btnDownload.addEventListener("click", function() {
+			if(window.navigator.msSaveBlob) {
+				window.navigator.msSaveBlob(myCanvas.msToBlob(), "canvas-image.png")
+			} else {
+				const a = document.createElement("a")
+				
+				document.body.appendChild(a)
+				a.href = myCanvas.toDataURL()
+				a.download = "canvas-image.png"
+				a.click()
+			}
+		})
 	</script>
 	
 </body>
