@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>take photo</title>
+</head>
+<body>
+	
+	<video id="video" width="100%" height="100%" autoplay></video>
+	
+	<script>
+		const video = document.querySelector("#video")
+
+		if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+			navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
+				video.srcObject = stream
+				video.play()
+			})
+		}
+	</script>
+	
+</body>
+</html>
