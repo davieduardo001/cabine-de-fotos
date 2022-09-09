@@ -22,27 +22,27 @@ gui.click()
 gui.moveTo(x=110, y=190, duration=0.1)
 gui.click()
 
-#go to DOWNLOADS
-gui.keyDown('alt')
+#go to transfere to CANVA
+sleep(1)
+gui.keyDown('ctrlleft')
 gui.press('tab')
-gui.keyUp('alt')
-
-#copy the photo
-gui.moveTo(x=333, y=172, duration=0.5)
+gui.keyUp('ctrlleft')
+gui.moveTo(x=292, y=307, duration=0.1)
 gui.click()
-gui.keyDown('ctrl')
-gui.press('x')
-gui.keyUp('ctrl')
+sleep(1)
+gui.press('enter')
+sleep(1)
 
-#paste the photo
-gui.keyDown('alt')
+#return to the MAIN tab
+gui.keyDown('ctrlleft')
 gui.press('tab')
-gui.press('tab')
-gui.keyUp('alt')
-gui.moveTo(x=1198, y=712, duration=2.5)
-gui.keyDown('ctrl')
-gui.press('v')
-gui.keyUp('ctrl')
+gui.keyUp('ctrlleft')
+sleep(1)
 
-
-
+#open terminal
+gui.keyDown('ctrlleft')
+gui.keyDown('altleft')
+gui.press('t')
+gui.keyUp('ctrlleft')
+gui.keyUp('altleft')
+gui.write('python3 index.py')
