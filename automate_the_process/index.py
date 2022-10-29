@@ -41,9 +41,7 @@ gui.keyUp('ctrlleft')
 sleep(1)
 
 #open terminal
-gui.keyDown('ctrlleft')
 gui.keyDown('altleft')
-gui.press('t')
-gui.keyUp('ctrlleft')
-gui.keyUp('altleft')
+gui.keyDown('tab')
+gui.press('altleft')
 gui.write('python3 index.py')
